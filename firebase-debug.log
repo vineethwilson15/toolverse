@@ -1,0 +1,16 @@
+[debug] [2026-05-15T07:04:28.098Z] ----------------------------------------------------------------------
+[debug] [2026-05-15T07:04:28.101Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\z004tuyd\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2026-05-15T07:04:28.102Z] CLI Version:   15.18.0
+[debug] [2026-05-15T07:04:28.102Z] Platform:      win32
+[debug] [2026-05-15T07:04:28.102Z] Node Version:  v24.13.0
+[debug] [2026-05-15T07:04:28.102Z] Time:          Fri May 15 2026 12:34:28 GMT+0530 (India Standard Time)
+[debug] [2026-05-15T07:04:28.102Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-15T07:04:35.647Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-15T07:04:35.648Z] > authorizing via signed-in user (vineethwilson15@gmail.com)
+[debug] [2026-05-15T07:04:35.648Z] [iam] checking project toolversekit for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-05-15T07:04:35.649Z] Checked if tokens are valid: true, expires at: 1778830584474
+[debug] [2026-05-15T07:04:35.650Z] Checked if tokens are valid: true, expires at: 1778830584474
+[debug] [2026-05-15T07:04:35.650Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/toolversekit:testIamPermissions [none]
+[debug] [2026-05-15T07:04:35.650Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/toolversekit:testIamPermissions  x-goog-user-project=toolversekit
+[debug] [2026-05-15T07:04:35.650Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/toolversekit:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

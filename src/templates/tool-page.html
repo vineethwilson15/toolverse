@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{{HEAD}}
+<link rel="stylesheet" href="/css/tool.css">
+</head>
+<body>
+{{HEADER}}
+<main class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">{{BREADCRUMB}}</nav>
+
+  <article class="tool-page">
+    <header class="tool-hero">
+      <h1 class="tool-title">{{TOOL_TITLE}}</h1>
+      <p class="tool-description">{{TOOL_DESCRIPTION}}</p>
+    </header>
+
+    <div class="tool-layout">
+      <section class="tool-input-section">
+        <form class="tool-form" id="tool-form" data-tool="{{TOOL_ID}}" data-realtime="{{REALTIME}}" data-outputs='{{OUTPUTS_JSON}}' novalidate>
+          {{TOOL_INPUTS}}
+          <button type="submit" class="btn btn-primary">Run Tool</button>
+        </form>
+      </section>
+
+      <section class="tool-output-section" id="tool-output">
+        {{TOOL_OUTPUTS}}
+      </section>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to Use</h2>
+      <p>{{HOW_TO_USE}}</p>
+    </section>
+
+    {{FAQ_SECTION}}
+    {{RELATED_TOOLS}}
+  </article>
+</main>
+{{FOOTER}}
+<script src="/js/main.js" defer></script>
+<script src="/tools/{{TOOL_ID}}.js" defer></script>
+<script src="/js/tool-ui.js" defer></script>
+{{STRUCTURED_DATA}}
+</body>
+</html>

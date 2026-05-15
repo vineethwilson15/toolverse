@@ -1,0 +1,270 @@
+[
+  {
+    "id": "word-counter",
+    "title": "Word Counter & Character Counter",
+    "description": "Count words, characters, sentences, paragraphs and estimate reading time instantly.",
+    "category": "text",
+    "icon": "Aa",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter or paste your text",
+        "placeholder": "Type or paste your text here...",
+        "rows": 8
+      }
+    ],
+    "outputs": [
+      { "id": "words", "label": "Words", "format": "number" },
+      { "id": "characters", "label": "Characters", "format": "number" },
+      { "id": "charactersNoSpaces", "label": "Characters (no spaces)", "format": "number" },
+      { "id": "sentences", "label": "Sentences", "format": "number" },
+      { "id": "paragraphs", "label": "Paragraphs", "format": "number" },
+      { "id": "readingTime", "label": "Reading Time", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Word Counter & Character Counter - Free Online Tool | ToolVerse",
+      "description": "Count words, characters, sentences and paragraphs instantly. Free online word counter with reading time estimation.",
+      "keywords": ["word counter", "character counter", "letter counter", "word count tool"]
+    },
+    "faq": [
+      {
+        "question": "How does the word counter work?",
+        "answer": "The word counter splits your text by whitespace and counts the resulting segments. It also counts characters, sentences (split by punctuation), and paragraphs (split by blank lines)."
+      },
+      {
+        "question": "What is reading time based on?",
+        "answer": "Reading time is estimated at 200 words per minute, which is the average adult reading speed."
+      },
+      {
+        "question": "Does it count special characters?",
+        "answer": "Yes, the character counter includes all characters — letters, numbers, symbols, and spaces. The 'Characters (no spaces)' output excludes whitespace."
+      }
+    ],
+    "relatedTools": ["case-converter", "json-formatter", "base64-encode-decode"],
+    "howToUse": "Paste or type your text in the input area. Word count, character count, sentence count, paragraph count and estimated reading time update in real-time as you type.",
+    "priority": 0.9
+  },
+  {
+    "id": "json-formatter",
+    "title": "JSON Formatter & Validator",
+    "description": "Format, beautify and validate JSON data with syntax highlighting. Detect errors instantly.",
+    "category": "developer",
+    "icon": "{}",
+    "inputs": [
+      {
+        "id": "json",
+        "type": "code",
+        "label": "Enter JSON",
+        "placeholder": "{\"key\": \"value\"}",
+        "rows": 10
+      },
+      {
+        "id": "indent",
+        "type": "select",
+        "label": "Indentation",
+        "options": [
+          { "value": "2", "label": "2 spaces" },
+          { "value": "4", "label": "4 spaces" },
+          { "value": "tab", "label": "Tab" }
+        ],
+        "default": "2"
+      }
+    ],
+    "outputs": [
+      { "id": "formatted", "label": "Formatted JSON", "format": "code" },
+      { "id": "valid", "label": "Status", "format": "text" },
+      { "id": "stats", "label": "Stats", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "JSON Formatter & Validator - Free Online Tool | ToolVerse",
+      "description": "Format, beautify and validate JSON data online. Free JSON formatter with syntax highlighting, error detection and indentation options.",
+      "keywords": ["json formatter", "json validator", "json beautifier", "json pretty print", "format json online"]
+    },
+    "faq": [
+      {
+        "question": "What does the JSON formatter do?",
+        "answer": "It takes raw or minified JSON text, parses it, and outputs it in a human-readable, properly indented format. It also validates that the JSON is syntactically correct."
+      },
+      {
+        "question": "What happens if my JSON is invalid?",
+        "answer": "The tool will display an error message indicating what went wrong and approximately where the error is located in your JSON string."
+      },
+      {
+        "question": "Can I choose the indentation level?",
+        "answer": "Yes, you can choose between 2 spaces, 4 spaces, or tab indentation using the dropdown menu."
+      }
+    ],
+    "relatedTools": ["base64-encode-decode", "uuid-generator", "word-counter"],
+    "howToUse": "Paste your JSON data into the input area, select your preferred indentation, and click 'Run Tool'. The formatted output will appear below with syntax validation status.",
+    "priority": 0.9
+  },
+  {
+    "id": "base64-encode-decode",
+    "title": "Base64 Encode & Decode",
+    "description": "Encode text to Base64 or decode Base64 strings back to plain text instantly.",
+    "category": "developer",
+    "icon": "B64",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text or Base64 string",
+        "placeholder": "Enter text to encode or Base64 to decode...",
+        "rows": 6
+      },
+      {
+        "id": "mode",
+        "type": "select",
+        "label": "Mode",
+        "options": [
+          { "value": "encode", "label": "Encode" },
+          { "value": "decode", "label": "Decode" }
+        ],
+        "default": "encode"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Result", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Base64 Encode & Decode - Free Online Tool | ToolVerse",
+      "description": "Encode text to Base64 or decode Base64 strings online. Free, instant Base64 encoder and decoder tool.",
+      "keywords": ["base64 encode", "base64 decode", "base64 converter", "base64 online"]
+    },
+    "faq": [
+      {
+        "question": "What is Base64 encoding?",
+        "answer": "Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters. It's commonly used to embed data in URLs, emails, and HTML."
+      },
+      {
+        "question": "Is Base64 encryption?",
+        "answer": "No. Base64 is an encoding, not encryption. It does not provide any security — anyone can decode a Base64 string. Use it for data transport, not for hiding sensitive information."
+      },
+      {
+        "question": "What characters does Base64 use?",
+        "answer": "Base64 uses A-Z, a-z, 0-9, + and / (64 characters total), with = used for padding. URL-safe Base64 replaces + with - and / with _."
+      }
+    ],
+    "relatedTools": ["json-formatter", "uuid-generator", "case-converter"],
+    "howToUse": "Enter your text in the input area and select 'Encode' or 'Decode' mode. The result updates in real-time as you type.",
+    "priority": 0.8
+  },
+  {
+    "id": "uuid-generator",
+    "title": "UUID / GUID Generator",
+    "description": "Generate random UUID v4 identifiers. Bulk generate multiple UUIDs at once.",
+    "category": "developer",
+    "icon": "ID",
+    "inputs": [
+      {
+        "id": "count",
+        "type": "number",
+        "label": "Number of UUIDs",
+        "default": 1,
+        "min": 1,
+        "max": 100
+      },
+      {
+        "id": "uppercase",
+        "type": "checkbox",
+        "label": "Uppercase",
+        "default": false
+      },
+      {
+        "id": "hyphens",
+        "type": "checkbox",
+        "label": "Include hyphens",
+        "default": true
+      }
+    ],
+    "outputs": [
+      { "id": "uuids", "label": "Generated UUIDs", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "UUID Generator - Generate Random UUID/GUID Online | ToolVerse",
+      "description": "Generate random UUID v4 identifiers online. Bulk generate multiple UUIDs with options for uppercase and hyphen formatting.",
+      "keywords": ["uuid generator", "guid generator", "random uuid", "uuid v4", "generate uuid online"]
+    },
+    "faq": [
+      {
+        "question": "What is a UUID?",
+        "answer": "A UUID (Universally Unique Identifier) is a 128-bit identifier that is practically unique across all systems. Version 4 UUIDs are randomly generated and have the format xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx."
+      },
+      {
+        "question": "Are generated UUIDs truly unique?",
+        "answer": "UUID v4 uses random numbers, making collisions astronomically unlikely. The probability of generating a duplicate is about 1 in 2^122 (5.3 x 10^36)."
+      },
+      {
+        "question": "What is the difference between UUID and GUID?",
+        "answer": "UUID and GUID are essentially the same thing. GUID (Globally Unique Identifier) is Microsoft's term for UUID. They follow the same specification and format."
+      }
+    ],
+    "relatedTools": ["json-formatter", "base64-encode-decode", "case-converter"],
+    "howToUse": "Set the number of UUIDs you want to generate, choose formatting options (uppercase, hyphens), and click 'Run Tool'. Click the copy button to copy all generated UUIDs.",
+    "priority": 0.8
+  },
+  {
+    "id": "case-converter",
+    "title": "Case Converter",
+    "description": "Convert text between uppercase, lowercase, title case, sentence case, camelCase, snake_case, kebab-case and PascalCase.",
+    "category": "text",
+    "icon": "Aa",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter your text",
+        "placeholder": "Type or paste text to convert...",
+        "rows": 6
+      },
+      {
+        "id": "targetCase",
+        "type": "select",
+        "label": "Convert to",
+        "options": [
+          { "value": "upper", "label": "UPPERCASE" },
+          { "value": "lower", "label": "lowercase" },
+          { "value": "title", "label": "Title Case" },
+          { "value": "sentence", "label": "Sentence case" },
+          { "value": "camel", "label": "camelCase" },
+          { "value": "pascal", "label": "PascalCase" },
+          { "value": "snake", "label": "snake_case" },
+          { "value": "kebab", "label": "kebab-case" },
+          { "value": "constant", "label": "CONSTANT_CASE" }
+        ],
+        "default": "upper"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Converted Text", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Case Converter - Transform Text Case Online | ToolVerse",
+      "description": "Convert text between uppercase, lowercase, title case, camelCase, snake_case, kebab-case and more. Free online case converter tool.",
+      "keywords": ["case converter", "text case converter", "uppercase converter", "camelcase converter", "snake case converter"]
+    },
+    "faq": [
+      {
+        "question": "What case formats are supported?",
+        "answer": "The tool supports: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE."
+      },
+      {
+        "question": "What is camelCase?",
+        "answer": "camelCase joins words together with no separator, capitalizing the first letter of each word except the first. Example: 'hello world' becomes 'helloWorld'. It's commonly used for variable names in JavaScript."
+      },
+      {
+        "question": "What is the difference between snake_case and kebab-case?",
+        "answer": "snake_case uses underscores between words (common in Python and databases), while kebab-case uses hyphens (common in URLs and CSS class names). Both use lowercase letters."
+      }
+    ],
+    "relatedTools": ["word-counter", "base64-encode-decode", "json-formatter"],
+    "howToUse": "Enter your text in the input area, select the target case format from the dropdown, and the converted text will appear in real-time.",
+    "priority": 0.8
+  }
+]

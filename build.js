@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://toolverse-app.vercel.app';
+const SITE_URL = 'https://toolverseweb.netlify.app';
 const DIST = path.join(__dirname, 'dist');
 const SRC = path.join(__dirname, 'src');
 const DATA = path.join(__dirname, 'data');

@@ -430,6 +430,11 @@ function buildRobotsTxt() {
   fs.writeFileSync(path.join(DIST, 'robots.txt'), content);
 }
 
+function buildHeaders() {
+  const content = `/css/*\n  Cache-Control: public, max-age=31536000, immutable\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n/tools/*\n  Cache-Control: public, max-age=31536000, immutable\n/*.html\n  Cache-Control: public, max-age=3600\n`;
+  fs.writeFileSync(path.join(DIST, '_headers'), content);
+}
+
 function buildFavicon() {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="16" fill="#6366F1"/><text x="50" y="68" font-family="monospace" font-size="48" font-weight="bold" fill="white" text-anchor="middle">TV</text></svg>`;
   fs.writeFileSync(path.join(DIST, 'favicon.svg'), svg);
@@ -485,6 +490,7 @@ function main() {
 
   buildSitemap(tools);
   buildRobotsTxt();
+  buildHeaders();
   buildFavicon();
   console.log('  Built sitemap, robots.txt, favicon');
 

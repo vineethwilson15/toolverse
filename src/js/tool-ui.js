@@ -54,8 +54,12 @@
 
     var inputs = collectInputs();
     try {
-      var results = fn(inputs);
-      displayResults(results);
+      var result = fn(inputs);
+      if (result && typeof result.then === 'function') {
+        result.then(displayResults);
+      } else {
+        displayResults(result);
+      }
     } catch (e) {
       console.error('Tool error:', e);
     }

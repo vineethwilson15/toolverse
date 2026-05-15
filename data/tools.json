@@ -42,7 +42,7 @@
         "answer": "Yes, the character counter includes all characters — letters, numbers, symbols, and spaces. The 'Characters (no spaces)' output excludes whitespace."
       }
     ],
-    "relatedTools": ["case-converter", "json-formatter", "base64-encode-decode"],
+    "relatedTools": ["case-converter", "lorem-ipsum-generator", "remove-duplicate-lines"],
     "howToUse": "Paste or type your text in the input area. Word count, character count, sentence count, paragraph count and estimated reading time update in real-time as you type.",
     "priority": 0.9
   },
@@ -97,7 +97,7 @@
         "answer": "Yes, you can choose between 2 spaces, 4 spaces, or tab indentation using the dropdown menu."
       }
     ],
-    "relatedTools": ["base64-encode-decode", "uuid-generator", "word-counter"],
+    "relatedTools": ["json-minifier", "json-to-csv", "jwt-decoder"],
     "howToUse": "Paste your JSON data into the input area, select your preferred indentation, and click 'Run Tool'. The formatted output will appear below with syntax validation status.",
     "priority": 0.9
   },
@@ -149,7 +149,7 @@
         "answer": "Base64 uses A-Z, a-z, 0-9, + and / (64 characters total), with = used for padding. URL-safe Base64 replaces + with - and / with _."
       }
     ],
-    "relatedTools": ["json-formatter", "uuid-generator", "case-converter"],
+    "relatedTools": ["url-encode-decode", "hash-generator", "jwt-decoder"],
     "howToUse": "Enter your text in the input area and select 'Encode' or 'Decode' mode. The result updates in real-time as you type.",
     "priority": 0.8
   },
@@ -204,7 +204,7 @@
         "answer": "UUID and GUID are essentially the same thing. GUID (Globally Unique Identifier) is Microsoft's term for UUID. They follow the same specification and format."
       }
     ],
-    "relatedTools": ["json-formatter", "base64-encode-decode", "case-converter"],
+    "relatedTools": ["hash-generator", "base64-encode-decode", "number-base-converter"],
     "howToUse": "Set the number of UUIDs you want to generate, choose formatting options (uppercase, hyphens), and click 'Run Tool'. Click the copy button to copy all generated UUIDs.",
     "priority": 0.8
   },
@@ -263,8 +263,1473 @@
         "answer": "snake_case uses underscores between words (common in Python and databases), while kebab-case uses hyphens (common in URLs and CSS class names). Both use lowercase letters."
       }
     ],
-    "relatedTools": ["word-counter", "base64-encode-decode", "json-formatter"],
+    "relatedTools": ["word-counter", "text-to-slug", "reverse-text"],
     "howToUse": "Enter your text in the input area, select the target case format from the dropdown, and the converted text will appear in real-time.",
     "priority": 0.8
+  },
+  {
+    "id": "lorem-ipsum-generator",
+    "title": "Lorem Ipsum Generator",
+    "description": "Generate placeholder lorem ipsum text in paragraphs, sentences, or words for your designs and mockups.",
+    "category": "text",
+    "icon": "Li",
+    "inputs": [
+      {
+        "id": "count",
+        "type": "number",
+        "label": "Number to generate",
+        "default": 3,
+        "min": 1,
+        "max": 100
+      },
+      {
+        "id": "unit",
+        "type": "select",
+        "label": "Unit",
+        "options": [
+          { "value": "paragraphs", "label": "Paragraphs" },
+          { "value": "sentences", "label": "Sentences" },
+          { "value": "words", "label": "Words" }
+        ],
+        "default": "paragraphs"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Generated Text", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Lorem Ipsum Generator - Free Placeholder Text | ToolVerse",
+      "description": "Generate lorem ipsum placeholder text for your designs. Choose paragraphs, sentences, or words. Free online dummy text generator.",
+      "keywords": ["lorem ipsum generator", "placeholder text", "dummy text generator", "lipsum"]
+    },
+    "faq": [
+      {
+        "question": "What is Lorem Ipsum?",
+        "answer": "Lorem Ipsum is placeholder text used in design and publishing since the 1500s. It helps visualize how content will look without being distracted by readable text."
+      },
+      {
+        "question": "Can I choose how much text to generate?",
+        "answer": "Yes, you can specify the number of paragraphs, sentences, or words to generate, from 1 up to 100 units."
+      },
+      {
+        "question": "Is the generated text random?",
+        "answer": "The text is randomly assembled from a pool of Latin-like words and phrases, so each generation produces slightly different output."
+      }
+    ],
+    "relatedTools": ["word-counter", "text-repeater", "text-to-slug"],
+    "howToUse": "Select the unit type (paragraphs, sentences, or words), set the count, and click 'Run Tool' to generate placeholder text.",
+    "priority": 0.7
+  },
+  {
+    "id": "text-repeater",
+    "title": "Text Repeater",
+    "description": "Repeat any text multiple times with a custom separator. Perfect for generating test data.",
+    "category": "text",
+    "icon": "Rp",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Text to repeat",
+        "placeholder": "Enter text to repeat...",
+        "rows": 3
+      },
+      {
+        "id": "count",
+        "type": "number",
+        "label": "Repeat count",
+        "default": 5,
+        "min": 1,
+        "max": 1000
+      },
+      {
+        "id": "separator",
+        "type": "text",
+        "label": "Separator (use \\n for newline)",
+        "placeholder": "\\n",
+        "default": "\\n"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Repeated Text", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Text Repeater - Repeat Text Online | ToolVerse",
+      "description": "Repeat any text string multiple times with custom separators. Free online text repeater for generating test data and patterns.",
+      "keywords": ["text repeater", "repeat text", "text multiplier", "repeat string online"]
+    },
+    "faq": [
+      {
+        "question": "What separators can I use?",
+        "answer": "You can use any character as a separator. Use \\n for newline, \\t for tab, or any custom text like a comma or space."
+      },
+      {
+        "question": "What is the maximum repeat count?",
+        "answer": "You can repeat text up to 1000 times. For very large outputs, your browser may take a moment to render the result."
+      },
+      {
+        "question": "Can I use this to generate test data?",
+        "answer": "Yes! Text repeater is useful for generating test data, filling forms, stress testing, or creating patterns."
+      }
+    ],
+    "relatedTools": ["lorem-ipsum-generator", "word-counter", "find-and-replace"],
+    "howToUse": "Enter the text you want to repeat, set the repeat count, optionally specify a separator, and click 'Run Tool'.",
+    "priority": 0.6
+  },
+  {
+    "id": "remove-duplicate-lines",
+    "title": "Remove Duplicate Lines",
+    "description": "Remove duplicate lines from text while preserving order. Option for case-sensitive matching.",
+    "category": "text",
+    "icon": "Dd",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text with duplicate lines",
+        "placeholder": "Enter text with one item per line...",
+        "rows": 8
+      },
+      {
+        "id": "caseSensitive",
+        "type": "checkbox",
+        "label": "Case sensitive",
+        "default": true
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Deduplicated Text", "format": "code" },
+      { "id": "stats", "label": "Stats", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Remove Duplicate Lines - Free Online Tool | ToolVerse",
+      "description": "Remove duplicate lines from text online. Deduplicate text while preserving order with case-sensitive option.",
+      "keywords": ["remove duplicate lines", "deduplicate text", "remove duplicates online", "unique lines"]
+    },
+    "faq": [
+      {
+        "question": "Does it preserve the order of lines?",
+        "answer": "Yes, the tool keeps the first occurrence of each unique line in its original position and removes subsequent duplicates."
+      },
+      {
+        "question": "What does case-sensitive mean?",
+        "answer": "When case-sensitive is enabled, 'Hello' and 'hello' are treated as different lines. When disabled, they are treated as duplicates."
+      },
+      {
+        "question": "Does it handle empty lines?",
+        "answer": "Yes, empty lines are treated like any other line. Multiple consecutive empty lines will be reduced to one."
+      }
+    ],
+    "relatedTools": ["sort-lines", "word-counter", "find-and-replace"],
+    "howToUse": "Paste your text with duplicate lines, optionally toggle case sensitivity, and the deduplicated result appears in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "sort-lines",
+    "title": "Sort Lines",
+    "description": "Sort text lines alphabetically, by length, in reverse, or randomize their order.",
+    "category": "text",
+    "icon": "Az",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text to sort",
+        "placeholder": "Enter text with one item per line...",
+        "rows": 8
+      },
+      {
+        "id": "sortType",
+        "type": "select",
+        "label": "Sort method",
+        "options": [
+          { "value": "az", "label": "A → Z (Alphabetical)" },
+          { "value": "za", "label": "Z → A (Reverse)" },
+          { "value": "lengthAsc", "label": "By Length (Short → Long)" },
+          { "value": "lengthDesc", "label": "By Length (Long → Short)" },
+          { "value": "reverse", "label": "Reverse Order" },
+          { "value": "random", "label": "Randomize" }
+        ],
+        "default": "az"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Sorted Text", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Sort Lines - Sort Text Alphabetically Online | ToolVerse",
+      "description": "Sort text lines alphabetically, by length, reverse order or randomize. Free online line sorter tool.",
+      "keywords": ["sort lines", "sort text", "alphabetical sort", "sort lines online", "text sorter"]
+    },
+    "faq": [
+      {
+        "question": "What sorting methods are available?",
+        "answer": "You can sort A-Z (alphabetical), Z-A (reverse alphabetical), by line length (ascending or descending), reverse the original order, or randomize lines."
+      },
+      {
+        "question": "Is the sort case-sensitive?",
+        "answer": "The alphabetical sort is case-insensitive by default, so 'Apple' and 'banana' sort naturally without uppercase letters being prioritized."
+      },
+      {
+        "question": "Can I sort numbers?",
+        "answer": "The tool sorts as text by default. For purely numeric lines, alphabetical sort works correctly for same-length numbers. For mixed content, results are sorted lexicographically."
+      }
+    ],
+    "relatedTools": ["remove-duplicate-lines", "reverse-text", "word-counter"],
+    "howToUse": "Paste your text with one item per line, select your preferred sort method, and click 'Run Tool'.",
+    "priority": 0.7
+  },
+  {
+    "id": "reverse-text",
+    "title": "Reverse Text",
+    "description": "Reverse text by characters, words, or lines. Create mirror text and backwards text instantly.",
+    "category": "text",
+    "icon": "↔",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text to reverse",
+        "placeholder": "Type or paste text here...",
+        "rows": 6
+      },
+      {
+        "id": "mode",
+        "type": "select",
+        "label": "Reverse by",
+        "options": [
+          { "value": "characters", "label": "Characters" },
+          { "value": "words", "label": "Words" },
+          { "value": "lines", "label": "Lines" }
+        ],
+        "default": "characters"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Reversed Text", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Reverse Text - Reverse String Online | ToolVerse",
+      "description": "Reverse text by characters, words, or lines online. Create mirror text, backwards text and reversed strings instantly.",
+      "keywords": ["reverse text", "reverse string", "backwards text", "mirror text", "flip text"]
+    },
+    "faq": [
+      {
+        "question": "What are the reverse modes?",
+        "answer": "Characters reverses the entire string character by character. Words keeps each word intact but reverses their order. Lines reverses the order of lines."
+      },
+      {
+        "question": "Does it work with special characters?",
+        "answer": "Yes, all characters including emojis, punctuation, and Unicode characters are reversed correctly."
+      },
+      {
+        "question": "Can I use this to check palindromes?",
+        "answer": "Yes! Type a word and if the reversed version is identical, it's a palindrome (e.g., 'racecar')."
+      }
+    ],
+    "relatedTools": ["case-converter", "sort-lines", "text-to-slug"],
+    "howToUse": "Enter your text, select the reverse mode (characters, words, or lines), and the reversed output updates in real-time.",
+    "priority": 0.6
+  },
+  {
+    "id": "text-to-slug",
+    "title": "Text to Slug / URL Generator",
+    "description": "Convert any text to a URL-friendly slug. Perfect for creating clean URLs and file names.",
+    "category": "text",
+    "icon": "/u",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text to convert",
+        "placeholder": "My Blog Post Title!",
+        "rows": 3
+      },
+      {
+        "id": "separator",
+        "type": "select",
+        "label": "Separator",
+        "options": [
+          { "value": "-", "label": "Hyphen (-)" },
+          { "value": "_", "label": "Underscore (_)" }
+        ],
+        "default": "-"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "URL Slug", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Text to Slug Generator - URL Slug Converter | ToolVerse",
+      "description": "Convert text to URL-friendly slugs instantly. Generate clean, SEO-friendly URLs from any text. Free online slug generator.",
+      "keywords": ["text to slug", "slug generator", "url slug", "url generator", "seo friendly url"]
+    },
+    "faq": [
+      {
+        "question": "What is a URL slug?",
+        "answer": "A slug is the URL-friendly version of a title or name. It uses only lowercase letters, numbers, and hyphens/underscores. For example, 'My Blog Post!' becomes 'my-blog-post'."
+      },
+      {
+        "question": "How does it handle special characters?",
+        "answer": "Special characters, accents, and symbols are removed. Spaces are converted to hyphens (or underscores). Multiple consecutive separators are collapsed into one."
+      },
+      {
+        "question": "Why are slugs important for SEO?",
+        "answer": "Clean, readable URLs with relevant keywords help search engines understand page content and improve click-through rates from search results."
+      }
+    ],
+    "relatedTools": ["case-converter", "url-encode-decode", "meta-tag-generator"],
+    "howToUse": "Enter your text (like a page title), choose hyphen or underscore separator, and the URL slug generates in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "find-and-replace",
+    "title": "Find & Replace",
+    "description": "Find and replace text with support for regular expressions. Preview all matches before replacing.",
+    "category": "text",
+    "icon": "Fr",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Input text",
+        "placeholder": "Enter your text here...",
+        "rows": 8
+      },
+      {
+        "id": "find",
+        "type": "text",
+        "label": "Find",
+        "placeholder": "Text or regex pattern to find"
+      },
+      {
+        "id": "replace",
+        "type": "text",
+        "label": "Replace with",
+        "placeholder": "Replacement text"
+      },
+      {
+        "id": "useRegex",
+        "type": "checkbox",
+        "label": "Use Regular Expression",
+        "default": false
+      },
+      {
+        "id": "caseSensitive",
+        "type": "checkbox",
+        "label": "Case Sensitive",
+        "default": true
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Result", "format": "code" },
+      { "id": "matches", "label": "Matches Found", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Find & Replace Text Online - Free Tool | ToolVerse",
+      "description": "Find and replace text with regex support. Preview matches before replacing. Free online find and replace tool.",
+      "keywords": ["find and replace", "find replace online", "text replace", "regex replace", "search and replace"]
+    },
+    "faq": [
+      {
+        "question": "Does it support regular expressions?",
+        "answer": "Yes, check the 'Use Regular Expression' box to use regex patterns. You can use capture groups ($1, $2) in the replacement text."
+      },
+      {
+        "question": "What regex flags are supported?",
+        "answer": "The tool applies the global flag (replace all matches). You can toggle case sensitivity with the checkbox."
+      },
+      {
+        "question": "Can I preview matches before replacing?",
+        "answer": "Yes, the tool shows how many matches were found before showing the replaced result."
+      }
+    ],
+    "relatedTools": ["regex-tester", "remove-duplicate-lines", "word-counter"],
+    "howToUse": "Enter your text, type the search term and replacement, choose options (regex, case), and click 'Run Tool'.",
+    "priority": 0.7
+  },
+  {
+    "id": "text-diff",
+    "title": "Text Diff / Compare",
+    "description": "Compare two texts side by side and highlight the differences line by line.",
+    "category": "text",
+    "icon": "Df",
+    "inputs": [
+      {
+        "id": "text1",
+        "type": "textarea",
+        "label": "Original text",
+        "placeholder": "Paste original text here...",
+        "rows": 8
+      },
+      {
+        "id": "text2",
+        "type": "textarea",
+        "label": "Modified text",
+        "placeholder": "Paste modified text here...",
+        "rows": 8
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Differences", "format": "code" },
+      { "id": "stats", "label": "Summary", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Text Diff - Compare Text Online | ToolVerse",
+      "description": "Compare two texts and highlight differences line by line. Free online text diff and comparison tool.",
+      "keywords": ["text diff", "compare text", "text comparison", "diff tool", "find differences"]
+    },
+    "faq": [
+      {
+        "question": "How does the diff work?",
+        "answer": "The tool compares both texts line by line. Lines present only in the original are marked with '-' (removed), lines present only in the modified text are marked with '+' (added), and unchanged lines are shown without markers."
+      },
+      {
+        "question": "Can it compare large texts?",
+        "answer": "Yes, the tool handles texts of any size. Very large texts may take a moment to process."
+      },
+      {
+        "question": "Does it show word-level differences?",
+        "answer": "Currently the tool shows line-level differences. Lines that differ between the two texts are highlighted as removed/added."
+      }
+    ],
+    "relatedTools": ["find-and-replace", "remove-duplicate-lines", "word-counter"],
+    "howToUse": "Paste the original text in the first box and the modified text in the second box, then click 'Run Tool' to see the differences.",
+    "priority": 0.7
+  },
+  {
+    "id": "url-encode-decode",
+    "title": "URL Encode / Decode",
+    "description": "Encode special characters for URLs or decode percent-encoded URL strings.",
+    "category": "developer",
+    "icon": "%",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text or URL-encoded string",
+        "placeholder": "hello world or hello%20world",
+        "rows": 4
+      },
+      {
+        "id": "mode",
+        "type": "select",
+        "label": "Mode",
+        "options": [
+          { "value": "encode", "label": "Encode" },
+          { "value": "decode", "label": "Decode" }
+        ],
+        "default": "encode"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Result", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "URL Encode / Decode - Free Online Tool | ToolVerse",
+      "description": "Encode or decode URL strings online. Convert special characters to percent-encoding and back. Free URL encoder decoder.",
+      "keywords": ["url encode", "url decode", "percent encoding", "urlencode online", "url encoder"]
+    },
+    "faq": [
+      {
+        "question": "What is URL encoding?",
+        "answer": "URL encoding converts special characters into a format that can be safely transmitted in URLs. For example, spaces become %20, and & becomes %26."
+      },
+      {
+        "question": "When should I URL encode?",
+        "answer": "URL encode when passing special characters in query parameters, form data, or any part of a URL that might contain reserved characters."
+      },
+      {
+        "question": "What is the difference between encodeURI and encodeURIComponent?",
+        "answer": "This tool uses encodeURIComponent which encodes all special characters. encodeURI preserves URL structure characters like :, /, and ?."
+      }
+    ],
+    "relatedTools": ["base64-encode-decode", "html-entity-encode-decode", "text-to-slug"],
+    "howToUse": "Enter your text or URL-encoded string, select Encode or Decode mode, and the result updates in real-time.",
+    "priority": 0.8
+  },
+  {
+    "id": "html-entity-encode-decode",
+    "title": "HTML Entity Encode / Decode",
+    "description": "Encode special characters as HTML entities or decode HTML entities back to text.",
+    "category": "developer",
+    "icon": "&;",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text or HTML entities",
+        "placeholder": "<div> or &lt;div&gt;",
+        "rows": 4
+      },
+      {
+        "id": "mode",
+        "type": "select",
+        "label": "Mode",
+        "options": [
+          { "value": "encode", "label": "Encode" },
+          { "value": "decode", "label": "Decode" }
+        ],
+        "default": "encode"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Result", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "HTML Entity Encode / Decode - Free Online Tool | ToolVerse",
+      "description": "Encode special characters as HTML entities or decode HTML entities. Prevent XSS and display HTML code safely.",
+      "keywords": ["html entity encode", "html entity decode", "html entities", "html special characters", "encode html"]
+    },
+    "faq": [
+      {
+        "question": "What are HTML entities?",
+        "answer": "HTML entities are special codes used to display reserved HTML characters. For example, < becomes &lt; and & becomes &amp;. They prevent browsers from interpreting text as HTML."
+      },
+      {
+        "question": "Why encode HTML entities?",
+        "answer": "Encoding prevents XSS attacks and ensures that characters like <, >, and & display as text rather than being interpreted as HTML tags or entities."
+      },
+      {
+        "question": "Which characters get encoded?",
+        "answer": "The most commonly encoded characters are: & (&amp;), < (&lt;), > (&gt;), \" (&quot;), and ' (&#39;)."
+      }
+    ],
+    "relatedTools": ["url-encode-decode", "base64-encode-decode", "markdown-to-html"],
+    "howToUse": "Enter text with special characters (or HTML entities to decode), select mode, and the result updates in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "hash-generator",
+    "title": "Hash Generator (SHA-256, SHA-1, SHA-512)",
+    "description": "Generate secure hash digests using SHA-256, SHA-1, SHA-384, and SHA-512 algorithms.",
+    "category": "developer",
+    "icon": "#",
+    "inputs": [
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "Enter text to hash",
+        "placeholder": "Enter text to generate hash...",
+        "rows": 4
+      },
+      {
+        "id": "algorithm",
+        "type": "select",
+        "label": "Algorithm",
+        "options": [
+          { "value": "SHA-256", "label": "SHA-256" },
+          { "value": "SHA-1", "label": "SHA-1" },
+          { "value": "SHA-384", "label": "SHA-384" },
+          { "value": "SHA-512", "label": "SHA-512" }
+        ],
+        "default": "SHA-256"
+      }
+    ],
+    "outputs": [
+      { "id": "hash", "label": "Hash", "format": "code" },
+      { "id": "algorithm", "label": "Algorithm", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Hash Generator - SHA-256, SHA-1, SHA-512 | ToolVerse",
+      "description": "Generate SHA-256, SHA-1, SHA-384 and SHA-512 hash digests online. Free cryptographic hash generator using Web Crypto API.",
+      "keywords": ["hash generator", "sha256 generator", "sha1 hash", "sha512", "crypto hash online"]
+    },
+    "faq": [
+      {
+        "question": "What is a hash function?",
+        "answer": "A hash function takes input data and produces a fixed-size string of characters (the hash). It's a one-way function — you can't reverse a hash back to the original data."
+      },
+      {
+        "question": "Which algorithm should I use?",
+        "answer": "SHA-256 is recommended for most purposes. SHA-1 is considered weak for security. SHA-384 and SHA-512 provide longer digests for higher security needs."
+      },
+      {
+        "question": "Is this done client-side?",
+        "answer": "Yes, all hashing is performed in your browser using the Web Crypto API. Your data never leaves your device."
+      }
+    ],
+    "relatedTools": ["base64-encode-decode", "uuid-generator", "jwt-decoder"],
+    "howToUse": "Enter the text you want to hash, select the algorithm, and click 'Run Tool'. The cryptographic hash will appear below.",
+    "priority": 0.8
+  },
+  {
+    "id": "regex-tester",
+    "title": "Regex Tester",
+    "description": "Test regular expressions against sample text. See all matches with capture groups highlighted.",
+    "category": "developer",
+    "icon": ".*",
+    "inputs": [
+      {
+        "id": "pattern",
+        "type": "text",
+        "label": "Regular Expression",
+        "placeholder": "\\d+|[a-z]+|pattern"
+      },
+      {
+        "id": "flags",
+        "type": "text",
+        "label": "Flags",
+        "placeholder": "g, i, m",
+        "default": "g"
+      },
+      {
+        "id": "testString",
+        "type": "textarea",
+        "label": "Test String",
+        "placeholder": "Enter text to test against...",
+        "rows": 6
+      }
+    ],
+    "outputs": [
+      { "id": "matches", "label": "Matches", "format": "code" },
+      { "id": "count", "label": "Match Count", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Regex Tester - Test Regular Expressions Online | ToolVerse",
+      "description": "Test regular expressions with live matching. See all matches and capture groups. Free online regex tester and debugger.",
+      "keywords": ["regex tester", "regular expression tester", "regex online", "test regex", "regex debugger"]
+    },
+    "faq": [
+      {
+        "question": "What regex flags are supported?",
+        "answer": "Common flags: g (global - find all matches), i (case-insensitive), m (multiline - ^ and $ match line boundaries), s (dotAll - . matches newlines)."
+      },
+      {
+        "question": "How do I see capture groups?",
+        "answer": "Use parentheses in your pattern to create capture groups. The tool displays each match with its captured groups listed separately."
+      },
+      {
+        "question": "What regex flavor is used?",
+        "answer": "The tool uses JavaScript's RegExp engine, which supports most common regex features including lookaheads, named groups, and Unicode escapes."
+      }
+    ],
+    "relatedTools": ["find-and-replace", "url-encode-decode", "hash-generator"],
+    "howToUse": "Enter your regex pattern and flags, paste test text, and click 'Run Tool'. All matches and capture groups will be displayed.",
+    "priority": 0.8
+  },
+  {
+    "id": "jwt-decoder",
+    "title": "JWT Decoder",
+    "description": "Decode JSON Web Tokens (JWT) to inspect header and payload data without verification.",
+    "category": "developer",
+    "icon": "Jw",
+    "inputs": [
+      {
+        "id": "token",
+        "type": "textarea",
+        "label": "JWT Token",
+        "placeholder": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "rows": 4
+      }
+    ],
+    "outputs": [
+      { "id": "header", "label": "Header", "format": "code" },
+      { "id": "payload", "label": "Payload", "format": "code" },
+      { "id": "status", "label": "Status", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "JWT Decoder - Decode JSON Web Tokens Online | ToolVerse",
+      "description": "Decode JWT tokens to view header and payload data. Inspect claims, expiration, and issuer. Free online JWT decoder.",
+      "keywords": ["jwt decoder", "decode jwt", "json web token decoder", "jwt parser", "jwt debugger"]
+    },
+    "faq": [
+      {
+        "question": "What is a JWT?",
+        "answer": "A JSON Web Token (JWT) is a compact, URL-safe token format used for securely transmitting information between parties. It consists of three parts: header, payload, and signature."
+      },
+      {
+        "question": "Does this verify the signature?",
+        "answer": "No, this tool only decodes the header and payload. It does not verify the cryptographic signature. Never trust a JWT's contents without proper server-side verification."
+      },
+      {
+        "question": "Is it safe to paste my JWT here?",
+        "answer": "Yes, all processing is done client-side in your browser. Your token is never sent to any server. However, avoid sharing JWTs in public as they may contain sensitive claims."
+      }
+    ],
+    "relatedTools": ["base64-encode-decode", "json-formatter", "hash-generator"],
+    "howToUse": "Paste your JWT token in the input field. The decoded header and payload will display in real-time with formatted JSON.",
+    "priority": 0.8
+  },
+  {
+    "id": "color-converter",
+    "title": "Color Converter",
+    "description": "Convert colors between HEX, RGB, and HSL formats. Input any color format and get all representations.",
+    "category": "developer",
+    "icon": "🎨",
+    "inputs": [
+      {
+        "id": "color",
+        "type": "text",
+        "label": "Color value",
+        "placeholder": "#ff5733 or 255,87,51 or 9,100,66"
+      },
+      {
+        "id": "inputFormat",
+        "type": "select",
+        "label": "Input format",
+        "options": [
+          { "value": "hex", "label": "HEX (#ff5733)" },
+          { "value": "rgb", "label": "RGB (255,87,51)" },
+          { "value": "hsl", "label": "HSL (9,100,66)" }
+        ],
+        "default": "hex"
+      }
+    ],
+    "outputs": [
+      { "id": "hex", "label": "HEX", "format": "text" },
+      { "id": "rgb", "label": "RGB", "format": "text" },
+      { "id": "hsl", "label": "HSL", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Color Converter - HEX to RGB to HSL | ToolVerse",
+      "description": "Convert colors between HEX, RGB, and HSL formats instantly. Free online color converter for designers and developers.",
+      "keywords": ["color converter", "hex to rgb", "rgb to hsl", "color code converter", "hex color converter"]
+    },
+    "faq": [
+      {
+        "question": "What color formats are supported?",
+        "answer": "The tool supports HEX (#ff5733 or ff5733), RGB (255, 87, 51), and HSL (9, 100%, 66%) color formats."
+      },
+      {
+        "question": "What is the difference between RGB and HSL?",
+        "answer": "RGB defines colors by Red, Green, Blue values (0-255). HSL uses Hue (0-360°), Saturation (0-100%), and Lightness (0-100%), which is more intuitive for color adjustments."
+      },
+      {
+        "question": "Does it support shorthand HEX?",
+        "answer": "Yes, 3-digit shorthand HEX codes like #f00 are expanded to 6-digit format (#ff0000) automatically."
+      }
+    ],
+    "relatedTools": ["css-unit-converter", "meta-tag-generator", "hash-generator"],
+    "howToUse": "Enter a color value, select the input format, and all color representations (HEX, RGB, HSL) update in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "css-unit-converter",
+    "title": "CSS Unit Converter",
+    "description": "Convert between CSS units: px, rem, em, and pt. Set your base font size for accurate conversions.",
+    "category": "developer",
+    "icon": "px",
+    "inputs": [
+      {
+        "id": "value",
+        "type": "number",
+        "label": "Value",
+        "default": 16,
+        "min": 0
+      },
+      {
+        "id": "fromUnit",
+        "type": "select",
+        "label": "From unit",
+        "options": [
+          { "value": "px", "label": "Pixels (px)" },
+          { "value": "rem", "label": "Root Em (rem)" },
+          { "value": "em", "label": "Em (em)" },
+          { "value": "pt", "label": "Points (pt)" }
+        ],
+        "default": "px"
+      },
+      {
+        "id": "baseSize",
+        "type": "number",
+        "label": "Base font size (px)",
+        "default": 16,
+        "min": 1
+      }
+    ],
+    "outputs": [
+      { "id": "px", "label": "Pixels", "format": "text" },
+      { "id": "rem", "label": "Rem", "format": "text" },
+      { "id": "em", "label": "Em", "format": "text" },
+      { "id": "pt", "label": "Points", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "CSS Unit Converter - px to rem to em | ToolVerse",
+      "description": "Convert between CSS units: px, rem, em, and pt. Set custom base size for accurate conversions. Free online CSS unit calculator.",
+      "keywords": ["css unit converter", "px to rem", "rem to px", "em to px", "css calculator"]
+    },
+    "faq": [
+      {
+        "question": "What is the base font size?",
+        "answer": "The base font size (default 16px in browsers) determines rem and em conversions. 1rem = 1 × base font size. Change this if your project uses a different root font size."
+      },
+      {
+        "question": "What is the difference between rem and em?",
+        "answer": "rem is relative to the root element's font size, while em is relative to the parent element's font size. rem is more predictable in nested elements."
+      },
+      {
+        "question": "When should I use rem vs px?",
+        "answer": "Use rem for scalable, accessible designs that respect user font size preferences. Use px for fixed elements where exact pixel dimensions matter (borders, shadows)."
+      }
+    ],
+    "relatedTools": ["color-converter", "number-base-converter", "meta-tag-generator"],
+    "howToUse": "Enter a value, select the source unit, set your base font size if needed, and all equivalent values update in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "json-minifier",
+    "title": "JSON Minifier",
+    "description": "Minify JSON by removing all whitespace and formatting. See how much space you save.",
+    "category": "developer",
+    "icon": "{}",
+    "inputs": [
+      {
+        "id": "json",
+        "type": "code",
+        "label": "Enter JSON to minify",
+        "placeholder": "{\n  \"key\": \"value\"\n}",
+        "rows": 8
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Minified JSON", "format": "code" },
+      { "id": "savings", "label": "Space Saved", "format": "text" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "JSON Minifier - Compress JSON Online | ToolVerse",
+      "description": "Minify JSON by removing whitespace and formatting. See character savings and compression ratio. Free online JSON compressor.",
+      "keywords": ["json minifier", "minify json", "json compressor", "compress json", "json minimize"]
+    },
+    "faq": [
+      {
+        "question": "What does minifying JSON do?",
+        "answer": "Minification removes all unnecessary whitespace, newlines, and indentation from JSON while keeping it valid. This reduces file size for faster network transfers."
+      },
+      {
+        "question": "Is the minified JSON still valid?",
+        "answer": "Yes, minified JSON is fully valid. It contains the same data structure and values — only formatting whitespace is removed."
+      },
+      {
+        "question": "How much space can I save?",
+        "answer": "Savings depend on the original formatting. Typically you can save 20-60% of characters by minifying well-formatted JSON."
+      }
+    ],
+    "relatedTools": ["json-formatter", "json-to-csv", "base64-encode-decode"],
+    "howToUse": "Paste your formatted JSON, click 'Run Tool', and get the minified version with statistics showing how much space was saved.",
+    "priority": 0.7
+  },
+  {
+    "id": "markdown-to-html",
+    "title": "Markdown to HTML",
+    "description": "Convert Markdown text to HTML. Supports headings, bold, italic, links, lists, code blocks and more.",
+    "category": "developer",
+    "icon": "Md",
+    "inputs": [
+      {
+        "id": "markdown",
+        "type": "code",
+        "label": "Enter Markdown",
+        "placeholder": "# Heading\n\n**Bold** and *italic* text\n\n- List item",
+        "rows": 10
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "HTML Output", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Markdown to HTML Converter - Free Online Tool | ToolVerse",
+      "description": "Convert Markdown to HTML online. Supports headings, bold, italic, links, lists, code blocks and blockquotes. Free Markdown parser.",
+      "keywords": ["markdown to html", "markdown converter", "md to html", "markdown parser", "convert markdown"]
+    },
+    "faq": [
+      {
+        "question": "What Markdown features are supported?",
+        "answer": "Headings (# H1, ## H2, ### H3), bold (**text**), italic (*text*), strikethrough (~~text~~), links, images, code blocks, inline code, blockquotes, and unordered lists."
+      },
+      {
+        "question": "Is this a full Markdown parser?",
+        "answer": "This is a lightweight parser covering the most common Markdown features. For complex documents with tables, footnotes, or custom extensions, a full parser like marked.js is recommended."
+      },
+      {
+        "question": "Can I use the output in my website?",
+        "answer": "Yes, the generated HTML can be copied and used directly in your web pages. Make sure to sanitize user-generated content to prevent XSS."
+      }
+    ],
+    "relatedTools": ["html-entity-encode-decode", "json-formatter", "meta-tag-generator"],
+    "howToUse": "Type or paste Markdown text in the input area and the HTML output updates in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "json-to-csv",
+    "title": "JSON to CSV Converter",
+    "description": "Convert JSON arrays to CSV format. Automatically detects headers from object keys.",
+    "category": "converter",
+    "icon": "Jc",
+    "inputs": [
+      {
+        "id": "json",
+        "type": "code",
+        "label": "JSON Array",
+        "placeholder": "[{\"name\":\"John\",\"age\":30},{\"name\":\"Jane\",\"age\":25}]",
+        "rows": 8
+      },
+      {
+        "id": "delimiter",
+        "type": "select",
+        "label": "Delimiter",
+        "options": [
+          { "value": ",", "label": "Comma (,)" },
+          { "value": ";", "label": "Semicolon (;)" },
+          { "value": "\t", "label": "Tab" }
+        ],
+        "default": ","
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "CSV Output", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "JSON to CSV Converter - Free Online Tool | ToolVerse",
+      "description": "Convert JSON arrays to CSV format online. Automatically detects headers from object keys. Free JSON to CSV converter.",
+      "keywords": ["json to csv", "convert json to csv", "json csv converter", "json to spreadsheet"]
+    },
+    "faq": [
+      {
+        "question": "What JSON format is expected?",
+        "answer": "The tool expects a JSON array of objects, like [{\"name\":\"John\",\"age\":30}]. Each object becomes a CSV row, and object keys become column headers."
+      },
+      {
+        "question": "How are nested objects handled?",
+        "answer": "Nested objects and arrays are converted to their string representation in the CSV cell. For best results, flatten your JSON before converting."
+      },
+      {
+        "question": "Can I change the delimiter?",
+        "answer": "Yes, you can choose comma, semicolon, or tab as the delimiter. Semicolons are common in locales that use commas as decimal separators."
+      }
+    ],
+    "relatedTools": ["csv-to-json", "json-formatter", "json-minifier"],
+    "howToUse": "Paste a JSON array of objects, choose your delimiter, and click 'Run Tool' to get the CSV output.",
+    "priority": 0.8
+  },
+  {
+    "id": "csv-to-json",
+    "title": "CSV to JSON Converter",
+    "description": "Parse CSV data into a JSON array of objects. First row is used as headers.",
+    "category": "converter",
+    "icon": "Cj",
+    "inputs": [
+      {
+        "id": "csv",
+        "type": "code",
+        "label": "CSV Data",
+        "placeholder": "name,age,city\nJohn,30,New York\nJane,25,London",
+        "rows": 8
+      },
+      {
+        "id": "delimiter",
+        "type": "select",
+        "label": "Delimiter",
+        "options": [
+          { "value": ",", "label": "Comma (,)" },
+          { "value": ";", "label": "Semicolon (;)" },
+          { "value": "\t", "label": "Tab" }
+        ],
+        "default": ","
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "JSON Output", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "CSV to JSON Converter - Free Online Tool | ToolVerse",
+      "description": "Convert CSV data to JSON array online. First row used as headers. Supports custom delimiters. Free CSV to JSON parser.",
+      "keywords": ["csv to json", "convert csv to json", "csv json converter", "csv parser online"]
+    },
+    "faq": [
+      {
+        "question": "How are headers determined?",
+        "answer": "The first row of your CSV is treated as the header row. Each column header becomes a key in the resulting JSON objects."
+      },
+      {
+        "question": "Does it handle quoted fields?",
+        "answer": "Yes, fields enclosed in double quotes are parsed correctly, including fields that contain commas or newlines within quotes."
+      },
+      {
+        "question": "Are numbers auto-detected?",
+        "answer": "Yes, values that look like numbers are automatically converted to numeric types in the JSON output."
+      }
+    ],
+    "relatedTools": ["json-to-csv", "json-formatter", "yaml-to-json"],
+    "howToUse": "Paste your CSV data with headers in the first row, choose the delimiter, and click 'Run Tool' to get JSON.",
+    "priority": 0.8
+  },
+  {
+    "id": "yaml-to-json",
+    "title": "YAML to JSON Converter",
+    "description": "Convert YAML data to JSON format. Supports basic YAML features including nested objects and arrays.",
+    "category": "converter",
+    "icon": "Yj",
+    "inputs": [
+      {
+        "id": "yaml",
+        "type": "code",
+        "label": "YAML Data",
+        "placeholder": "name: John\nage: 30\nhobbies:\n  - reading\n  - coding",
+        "rows": 10
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "JSON Output", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "YAML to JSON Converter - Free Online Tool | ToolVerse",
+      "description": "Convert YAML to JSON format online. Supports nested objects, arrays, and basic YAML features. Free YAML to JSON converter.",
+      "keywords": ["yaml to json", "convert yaml to json", "yaml json converter", "yaml parser online"]
+    },
+    "faq": [
+      {
+        "question": "What YAML features are supported?",
+        "answer": "The tool supports key-value pairs, nested objects (via indentation), arrays (- items), strings, numbers, booleans (true/false), and null values."
+      },
+      {
+        "question": "Does it support the full YAML specification?",
+        "answer": "This is a lightweight parser for common YAML patterns. Advanced features like anchors, aliases, multi-line strings, and custom tags are not supported."
+      },
+      {
+        "question": "How is indentation handled?",
+        "answer": "Indentation determines nesting level. Use consistent spacing (typically 2 spaces) for nested objects and arrays."
+      }
+    ],
+    "relatedTools": ["json-formatter", "csv-to-json", "json-to-csv"],
+    "howToUse": "Paste your YAML data and click 'Run Tool'. The equivalent JSON will be displayed below.",
+    "priority": 0.7
+  },
+  {
+    "id": "number-base-converter",
+    "title": "Number Base Converter",
+    "description": "Convert numbers between binary, octal, decimal, and hexadecimal bases instantly.",
+    "category": "converter",
+    "icon": "01",
+    "inputs": [
+      {
+        "id": "value",
+        "type": "text",
+        "label": "Number value",
+        "placeholder": "255 or FF or 11111111"
+      },
+      {
+        "id": "fromBase",
+        "type": "select",
+        "label": "From base",
+        "options": [
+          { "value": "2", "label": "Binary (Base 2)" },
+          { "value": "8", "label": "Octal (Base 8)" },
+          { "value": "10", "label": "Decimal (Base 10)" },
+          { "value": "16", "label": "Hexadecimal (Base 16)" }
+        ],
+        "default": "10"
+      }
+    ],
+    "outputs": [
+      { "id": "binary", "label": "Binary (Base 2)", "format": "text" },
+      { "id": "octal", "label": "Octal (Base 8)", "format": "text" },
+      { "id": "decimal", "label": "Decimal (Base 10)", "format": "text" },
+      { "id": "hex", "label": "Hexadecimal (Base 16)", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Number Base Converter - Binary, Octal, Decimal, Hex | ToolVerse",
+      "description": "Convert numbers between binary, octal, decimal, and hexadecimal. Free online number base converter and calculator.",
+      "keywords": ["number base converter", "binary converter", "hex converter", "decimal to binary", "binary to decimal"]
+    },
+    "faq": [
+      {
+        "question": "What number bases are supported?",
+        "answer": "Binary (base 2), Octal (base 8), Decimal (base 10), and Hexadecimal (base 16). Enter a number in any base and see all conversions."
+      },
+      {
+        "question": "What is hexadecimal?",
+        "answer": "Hexadecimal (base 16) uses digits 0-9 and letters A-F. It's commonly used in computing for memory addresses, color codes, and byte representation."
+      },
+      {
+        "question": "Can I convert large numbers?",
+        "answer": "The tool handles numbers up to JavaScript's safe integer limit (2^53 - 1). For larger numbers, precision may be lost."
+      }
+    ],
+    "relatedTools": ["css-unit-converter", "unix-timestamp-converter", "hash-generator"],
+    "howToUse": "Enter a number, select which base it's in, and all equivalent representations update in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "unix-timestamp-converter",
+    "title": "Unix Timestamp Converter",
+    "description": "Convert Unix timestamps to human-readable dates and vice versa. Supports seconds and milliseconds.",
+    "category": "converter",
+    "icon": "⏱",
+    "inputs": [
+      {
+        "id": "value",
+        "type": "text",
+        "label": "Timestamp or date string",
+        "placeholder": "1700000000 or 2023-11-14T22:13:20Z"
+      },
+      {
+        "id": "mode",
+        "type": "select",
+        "label": "Conversion mode",
+        "options": [
+          { "value": "toDate", "label": "Timestamp → Date" },
+          { "value": "toTimestamp", "label": "Date → Timestamp" }
+        ],
+        "default": "toDate"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Result", "format": "text" },
+      { "id": "utc", "label": "UTC", "format": "text" },
+      { "id": "local", "label": "Local Time", "format": "text" },
+      { "id": "timestamp", "label": "Unix Timestamp", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Unix Timestamp Converter - Epoch to Date | ToolVerse",
+      "description": "Convert Unix timestamps to dates and dates to timestamps. Supports seconds and milliseconds. Free online epoch converter.",
+      "keywords": ["unix timestamp converter", "epoch converter", "timestamp to date", "unix time", "epoch time"]
+    },
+    "faq": [
+      {
+        "question": "What is a Unix timestamp?",
+        "answer": "A Unix timestamp is the number of seconds elapsed since January 1, 1970 00:00:00 UTC (the Unix epoch). It's widely used in computing for date/time storage."
+      },
+      {
+        "question": "Does it handle milliseconds?",
+        "answer": "Yes, if the timestamp is longer than 10 digits, it's automatically treated as milliseconds. Otherwise it's treated as seconds."
+      },
+      {
+        "question": "What date formats are accepted?",
+        "answer": "You can enter dates in ISO 8601 format (2023-11-14T22:13:20Z), or common date strings that JavaScript's Date parser recognizes."
+      }
+    ],
+    "relatedTools": ["number-base-converter", "json-formatter", "uuid-generator"],
+    "howToUse": "Enter a Unix timestamp (to convert to date) or a date string (to get the timestamp), select the mode, and results update in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "meta-tag-generator",
+    "title": "Meta Tag Generator",
+    "description": "Generate HTML meta tags for SEO including Open Graph and Twitter Card tags from simple inputs.",
+    "category": "seo",
+    "icon": "<>",
+    "inputs": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Page Title",
+        "placeholder": "My Awesome Website"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Page Description",
+        "placeholder": "A brief description of your page content...",
+        "rows": 3
+      },
+      {
+        "id": "keywords",
+        "type": "text",
+        "label": "Keywords (comma-separated)",
+        "placeholder": "keyword1, keyword2, keyword3"
+      },
+      {
+        "id": "author",
+        "type": "text",
+        "label": "Author",
+        "placeholder": "Author name"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Generated Meta Tags", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Meta Tag Generator - SEO Meta Tags | ToolVerse",
+      "description": "Generate HTML meta tags for SEO, Open Graph, and Twitter Cards. Free online meta tag generator for better search engine visibility.",
+      "keywords": ["meta tag generator", "seo meta tags", "html meta tags", "open graph generator", "twitter card generator"]
+    },
+    "faq": [
+      {
+        "question": "What meta tags are generated?",
+        "answer": "The tool generates basic HTML meta tags (title, description, keywords, author, viewport) plus Open Graph tags and Twitter Card tags for social media sharing."
+      },
+      {
+        "question": "Are meta tags important for SEO?",
+        "answer": "Yes, especially the title tag and meta description. They help search engines understand your content and appear in search results. Keywords have less impact on modern SEO."
+      },
+      {
+        "question": "How do Open Graph tags help?",
+        "answer": "Open Graph tags control how your page appears when shared on social media (Facebook, LinkedIn). They set the title, description, and image for social previews."
+      }
+    ],
+    "relatedTools": ["open-graph-preview", "robots-txt-generator", "sitemap-generator"],
+    "howToUse": "Fill in the page title, description, keywords, and author. The complete meta tag HTML generates in real-time, ready to copy into your page's <head>.",
+    "priority": 0.8
+  },
+  {
+    "id": "open-graph-preview",
+    "title": "Open Graph Preview",
+    "description": "Preview how your page will look when shared on social media. Generate Open Graph meta tags.",
+    "category": "seo",
+    "icon": "Og",
+    "inputs": [
+      {
+        "id": "ogTitle",
+        "type": "text",
+        "label": "OG Title",
+        "placeholder": "Your Page Title"
+      },
+      {
+        "id": "ogDescription",
+        "type": "textarea",
+        "label": "OG Description",
+        "placeholder": "A compelling description for social sharing...",
+        "rows": 3
+      },
+      {
+        "id": "ogImage",
+        "type": "text",
+        "label": "OG Image URL",
+        "placeholder": "https://example.com/image.jpg"
+      },
+      {
+        "id": "ogUrl",
+        "type": "text",
+        "label": "Page URL",
+        "placeholder": "https://example.com/page"
+      },
+      {
+        "id": "ogSiteName",
+        "type": "text",
+        "label": "Site Name",
+        "placeholder": "My Website"
+      }
+    ],
+    "outputs": [
+      { "id": "tags", "label": "OG Meta Tags", "format": "code" },
+      { "id": "preview", "label": "Social Card Preview", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "Open Graph Preview - Social Media Card Preview | ToolVerse",
+      "description": "Preview how your page looks on social media. Generate Open Graph meta tags and see the social card preview. Free OG debugger.",
+      "keywords": ["open graph preview", "og tags generator", "social media preview", "facebook share preview", "social card preview"]
+    },
+    "faq": [
+      {
+        "question": "What is Open Graph?",
+        "answer": "Open Graph is a protocol created by Facebook that controls how your content appears when shared on social media platforms. It defines the title, description, image, and URL shown in social cards."
+      },
+      {
+        "question": "What size should the OG image be?",
+        "answer": "The recommended OG image size is 1200×630 pixels. This works well across Facebook, Twitter, LinkedIn, and other platforms."
+      },
+      {
+        "question": "How do I test my actual page's OG tags?",
+        "answer": "After adding OG tags to your page, use Facebook's Sharing Debugger or Twitter's Card Validator to test how your real page appears when shared."
+      }
+    ],
+    "relatedTools": ["meta-tag-generator", "sitemap-generator", "robots-txt-generator"],
+    "howToUse": "Fill in the OG fields (title, description, image URL, page URL, site name) and see the generated meta tags plus a text preview of how the social card will look.",
+    "priority": 0.7
+  },
+  {
+    "id": "robots-txt-generator",
+    "title": "robots.txt Generator",
+    "description": "Generate a robots.txt file for your website. Control search engine crawling with allow/disallow rules.",
+    "category": "seo",
+    "icon": "🤖",
+    "inputs": [
+      {
+        "id": "userAgent",
+        "type": "text",
+        "label": "User-agent",
+        "placeholder": "*",
+        "default": "*"
+      },
+      {
+        "id": "allowPaths",
+        "type": "textarea",
+        "label": "Allow paths (one per line)",
+        "placeholder": "/",
+        "rows": 3
+      },
+      {
+        "id": "disallowPaths",
+        "type": "textarea",
+        "label": "Disallow paths (one per line)",
+        "placeholder": "/admin\n/private",
+        "rows": 3
+      },
+      {
+        "id": "sitemapUrl",
+        "type": "text",
+        "label": "Sitemap URL",
+        "placeholder": "https://example.com/sitemap.xml"
+      },
+      {
+        "id": "crawlDelay",
+        "type": "number",
+        "label": "Crawl delay (seconds, optional)",
+        "default": "",
+        "min": 0
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "robots.txt Content", "format": "code" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "robots.txt Generator - Free Online Tool | ToolVerse",
+      "description": "Generate robots.txt files for your website. Control crawling, set allow/disallow rules, and add sitemap reference. Free robots.txt builder.",
+      "keywords": ["robots.txt generator", "robots txt creator", "robots.txt builder", "create robots txt", "seo robots file"]
+    },
+    "faq": [
+      {
+        "question": "What is robots.txt?",
+        "answer": "robots.txt is a text file placed at your website's root that tells search engine crawlers which pages to crawl and which to skip. It's part of the Robots Exclusion Protocol."
+      },
+      {
+        "question": "Does robots.txt block pages from appearing in search?",
+        "answer": "No, robots.txt only prevents crawling, not indexing. Pages can still appear in search results if other pages link to them. Use meta robots noindex to prevent indexing."
+      },
+      {
+        "question": "Where should I place robots.txt?",
+        "answer": "robots.txt must be placed at the root of your domain: https://example.com/robots.txt. It won't work in subdirectories."
+      }
+    ],
+    "relatedTools": ["sitemap-generator", "meta-tag-generator", "open-graph-preview"],
+    "howToUse": "Set the user-agent, add allow/disallow paths, optionally add your sitemap URL and crawl delay. The robots.txt content generates in real-time.",
+    "priority": 0.7
+  },
+  {
+    "id": "sitemap-generator",
+    "title": "Sitemap XML Generator",
+    "description": "Generate a sitemap.xml file from a list of URLs. Set change frequency and priority for each URL.",
+    "category": "seo",
+    "icon": "🗺",
+    "inputs": [
+      {
+        "id": "urls",
+        "type": "textarea",
+        "label": "URLs (one per line)",
+        "placeholder": "https://example.com/\nhttps://example.com/about\nhttps://example.com/contact",
+        "rows": 8
+      },
+      {
+        "id": "changefreq",
+        "type": "select",
+        "label": "Change Frequency",
+        "options": [
+          { "value": "always", "label": "Always" },
+          { "value": "hourly", "label": "Hourly" },
+          { "value": "daily", "label": "Daily" },
+          { "value": "weekly", "label": "Weekly" },
+          { "value": "monthly", "label": "Monthly" },
+          { "value": "yearly", "label": "Yearly" },
+          { "value": "never", "label": "Never" }
+        ],
+        "default": "weekly"
+      },
+      {
+        "id": "priority",
+        "type": "select",
+        "label": "Priority",
+        "options": [
+          { "value": "1.0", "label": "1.0 (Highest)" },
+          { "value": "0.8", "label": "0.8 (High)" },
+          { "value": "0.5", "label": "0.5 (Normal)" },
+          { "value": "0.3", "label": "0.3 (Low)" }
+        ],
+        "default": "0.8"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Sitemap XML", "format": "code" }
+    ],
+    "realtime": false,
+    "seo": {
+      "title": "Sitemap XML Generator - Free Online Tool | ToolVerse",
+      "description": "Generate sitemap.xml from a URL list. Set change frequency and priority. Free online sitemap generator for better SEO.",
+      "keywords": ["sitemap generator", "xml sitemap", "sitemap.xml generator", "create sitemap", "seo sitemap"]
+    },
+    "faq": [
+      {
+        "question": "What is a sitemap.xml?",
+        "answer": "A sitemap.xml file lists all pages on your website that you want search engines to discover. It helps crawlers find and index your pages more efficiently."
+      },
+      {
+        "question": "How important is the priority value?",
+        "answer": "Priority is a hint to search engines about relative importance of pages on YOUR site. It doesn't affect ranking versus other websites. Use 0.8-1.0 for key pages, 0.5 for normal pages."
+      },
+      {
+        "question": "Where do I submit my sitemap?",
+        "answer": "Submit your sitemap in Google Search Console, Bing Webmaster Tools, and reference it in your robots.txt file with the Sitemap: directive."
+      }
+    ],
+    "relatedTools": ["robots-txt-generator", "meta-tag-generator", "open-graph-preview"],
+    "howToUse": "Enter your URLs (one per line), set change frequency and priority, and click 'Run Tool' to generate the XML sitemap.",
+    "priority": 0.7
+  },
+  {
+    "id": "http-status-codes",
+    "title": "HTTP Status Code Reference",
+    "description": "Search and browse all HTTP status codes with descriptions. Quick reference for web developers.",
+    "category": "seo",
+    "icon": "Http",
+    "inputs": [
+      {
+        "id": "search",
+        "type": "text",
+        "label": "Search codes",
+        "placeholder": "404 or 'not found' or '5' for 5xx"
+      }
+    ],
+    "outputs": [
+      { "id": "result", "label": "Status Codes", "format": "code" },
+      { "id": "count", "label": "Results", "format": "text" }
+    ],
+    "realtime": true,
+    "seo": {
+      "title": "HTTP Status Codes Reference - Complete List | ToolVerse",
+      "description": "Searchable HTTP status code reference. Find any status code with description and meaning. Complete HTTP response codes list.",
+      "keywords": ["http status codes", "http response codes", "404 meaning", "status code list", "http codes reference"]
+    },
+    "faq": [
+      {
+        "question": "What are HTTP status codes?",
+        "answer": "HTTP status codes are three-digit numbers returned by servers to indicate the result of a request. 2xx means success, 3xx means redirection, 4xx means client error, and 5xx means server error."
+      },
+      {
+        "question": "What is the most common error code?",
+        "answer": "404 (Not Found) is the most common client error, meaning the requested page doesn't exist. 500 (Internal Server Error) is the most common server error."
+      },
+      {
+        "question": "What is the difference between 301 and 302?",
+        "answer": "301 is a permanent redirect (search engines transfer link equity). 302 is a temporary redirect (search engines keep indexing the original URL)."
+      }
+    ],
+    "relatedTools": ["meta-tag-generator", "robots-txt-generator", "url-encode-decode"],
+    "howToUse": "Type a status code number or keyword to search. Leave empty to see all codes. Results update in real-time as you type.",
+    "priority": 0.7
   }
 ]

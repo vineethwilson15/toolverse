@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://toolverse.web.app';
+const SITE_URL = 'https://toolversekit.web.app';
 const DIST = path.join(__dirname, 'dist');
 const SRC = path.join(__dirname, 'src');
 const DATA = path.join(__dirname, 'data');
